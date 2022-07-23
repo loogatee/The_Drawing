@@ -4,7 +4,7 @@ There's a geometrical drawing on the cover of "Architectural Graphics", 2nd ed, 
 HPGL2 was also in high-end inkjets produced by HP in Rancho Bernardo in the mid 90's.   Almost all the remaining output I have is from those machines.
 
 This is more like an archive of my old work done in the mid 90's.
-The various odd-named files with no suffix are output from the program using different parameters.
+The various odd-named files with no discernable file-type are HPGL2 output from the program using different parameters.
 I didn't do a good job of describing the output produced, based on the name.   Sorry bout that!
 
 ---
