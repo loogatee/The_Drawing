@@ -8,7 +8,7 @@ HPGL2 was also in high-end inkjets produced by HP in Rancho Bernardo in the mid 
 Here is the cover from Architectural Graphics, 1985
 
 
-![pic01](./aa1.png)
+![pic01](./aa3.png)
 
 ---
 
@@ -31,4 +31,4 @@ I had the brilliant idea of turning "That Drawing" into an HPGL2 program.
 And so I did that.  Here is the result, printed out on a Goldrush, circa 1995.
 
 
-![pic03](./aa3.png)
+![pic03](./aa1.png)
