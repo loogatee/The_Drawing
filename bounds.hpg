@@ -1,0 +1,29 @@
+%1B
+IN;
+PA;			XY "use absolute";
+SP 1;
+
+PU 105 10050;		XY "center point for upper left corner";
+CI 100;
+
+PU 8023 10050		XY "center point for upper right corner";
+CI 100;
+
+PU 105 170;		XY "center point for lower left corner";
+CI 100;
+
+PU 8023 170;		XY "center point for lower right corner";
+CI 100;
+
+PU 105 10050		XY "move to upper left corner";
+
+PD 8023 10050		XY "upper line of rectangle";
+
+PD 8023 170;		XY "right line of rectangle";
+
+PD 105 170;		XY "lower line of rectangle";
+
+PD 105 10050		XY "left line of rectangle";
+
+%1A
+
