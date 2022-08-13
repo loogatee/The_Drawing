@@ -36,3 +36,17 @@ And so I did that.  Here is the result, printed out on a Goldrush, circa 1995.
 
 
 ![pic03](./aa1.png)
+
+---
+
+Aha!!  There is still life in "The Drawing".   I discovered an hpgl to .png converter
+using google search.   The results are amazing!  Here is the output from the file named simply "HP".
+
+
+![pic04](./HP.png)
+
+
+
+
+
+
