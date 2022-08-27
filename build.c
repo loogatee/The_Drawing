@@ -1,5 +1,25 @@
+/*  Copyright 2022  john reed
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not  use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ * 
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations  under the License.
+ */
+
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
+
+              /*
+               *     Build command is: gcc build.c -lm
+               */
 
 /*
  *    These defines are for various parameters associated with
@@ -232,7 +252,7 @@ double    *ret_x, *ret_y;
 
 
 
-main(argc,argv)
+void main(argc,argv)
 int    argc;
 char    *argv[];
 {
@@ -641,106 +661,104 @@ again:
     ang_x0 = anga;
     ang_x1 = angb;
 
-    adjust = 0.0;
+    adjust = -(.01);
 
-incr:
-
-    increment = len_SQs / 8.0 - adjust;
-
-    try1 = (len_SQs / 2.0) + SQs_y1 + increment;
-
-    sideC = 0;
-    sideA = 0;
-    sideB = try1 - SQ_y1;
-    anga  = ang_x0;
-    angb  = ang_x1;
-
-    resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
-
-    JR1_x = SQC_x + sideA;
-    JR1_y = SQC_y + increment;
-
-    sideC = 0;
-    sideA = (SQC_y + (len_SQs / 2.0)) - JR1_y;
-    sideB = JR1_x - SQC_x;
-    anga  = 0;
-    angb  = 0;
-
-    resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
-
-    sideC = 0;
-    sideA = 0;
-    sideB = len_SQs / 2.0;
-
-    resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
-
-    JR2_x = SQC_x + (len_SQs / 2.0);
-    JR2_y = SQC_y + (len_SQs / 2.0) - sideA;
-
-    sideC = 0;
-    sideA = 0;
-    sideB = SQC_y + (len_SQs / 2.0) - JR1_y;
-    anga  = 45;
-    angb  = 45;
-
-    resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
-
-    JR3_x = SQC_x + (len_SQs / 2.0) - sideA;
-    JR3_y = JR1_y;
-
-    sideC = 0;
-    sideA = SQC_y - JR2_y;
-    sideB = 0;
-    anga  = 45;
-    angb  = 45;
-
-    resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
-
-    JR4_x = SQC_x + sideB;
-    JR4_y = JR2_y;
-
-    sideC = 0;
-    sideA = (len_SQs / 2.0) - increment;
-    sideB = JR3_x - SQC_x;
-    anga  = 0;
-    angb  = 0;
-
-    resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
-
-    ang_x2 = anga;
-
-    sideC = 0;
-    sideA = increment;
-    sideB = increment;
-    anga  = 45;
-    angb  = 45;
-
-    resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
-
-    sideA = sideC;
-    sideC = 0;
-    sideB = 0;
-    angb  = 180.0 - 45.0 - ang_x2;
-    anga  = 180.0 - 90.0 - angb;
-
-    resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
-
-    sideC = sideB;
-    sideA = 0;
-    sideB = 0;
-    angb  = 45;
-    anga  = 45;
-
-    resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
-
-    JR5_x = SQC_x + sideA;
-    JR5_y = SQC_y - sideB;
-
-    if ((JR4_x - JR5_x) < 0.05)
+    do
     {
         adjust = adjust + .01;
-        goto incr;
-    }
+
+        increment = len_SQs / 8.0 - adjust;
+
+        try1 = (len_SQs / 2.0) + SQs_y1 + increment;
+
+        sideC = 0;
+        sideA = 0;
+        sideB = try1 - SQ_y1;
+        anga  = ang_x0;
+        angb  = ang_x1;
+
+        resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
+
+        JR1_x = SQC_x + sideA;
+        JR1_y = SQC_y + increment;
+
+        sideC = 0;
+        sideA = (SQC_y + (len_SQs / 2.0)) - JR1_y;
+        sideB = JR1_x - SQC_x;
+        anga  = 0;
+        angb  = 0;
+
+        resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
+
+        sideC = 0;
+        sideA = 0;
+        sideB = len_SQs / 2.0;
+
+        resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
+
+        JR2_x = SQC_x + (len_SQs / 2.0);
+        JR2_y = SQC_y + (len_SQs / 2.0) - sideA;
+
+        sideC = 0;
+        sideA = 0;
+        sideB = SQC_y + (len_SQs / 2.0) - JR1_y;
+        anga  = 45;
+        angb  = 45;
+
+        resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
+
+        JR3_x = SQC_x + (len_SQs / 2.0) - sideA;
+        JR3_y = JR1_y;
+
+        sideC = 0;
+        sideA = SQC_y - JR2_y;
+        sideB = 0;
+        anga  = 45;
+        angb  = 45;
+
+        resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
+
+        JR4_x = SQC_x + sideB;
+        JR4_y = JR2_y;
+
+        sideC = 0;
+        sideA = (len_SQs / 2.0) - increment;
+        sideB = JR3_x - SQC_x;
+        anga  = 0;
+        angb  = 0;
+
+        resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
+
+        ang_x2 = anga;
+
+        sideC = 0;
+        sideA = increment;
+        sideB = increment;
+        anga  = 45;
+        angb  = 45;
+
+        resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
+
+        sideA = sideC;
+        sideC = 0;
+        sideB = 0;
+        angb  = 180.0 - 45.0 - ang_x2;
+        anga  = 180.0 - 90.0 - angb;
+
+        resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
+
+        sideC = sideB;
+        sideA = 0;
+        sideB = 0;
+        angb  = 45;
+        anga  = 45;
+
+        resolve_triangle(&sideA,&sideB,&sideC,&anga,&angb);
+
+        JR5_x = SQC_x + sideA;
+        JR5_y = SQC_y - sideB;
+
+    } while ((JR4_x - JR5_x) < 0.05);
 
     printf("PU %f %f;\n",JR1_x,JR1_y);
     printf("PD %f %f;\n",JR3_x,JR3_y);
